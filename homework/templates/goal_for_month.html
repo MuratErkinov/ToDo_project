@@ -14,19 +14,20 @@
     <section>
 
         <div class="create_container">
-
-            <div class="input_container">
-                <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" />
-                <input class="create_input" type="month" name="add_goal_date" />
-            </div>
-            <div class="select_difficulty">
-                <h4>Уровень сложности</h4>
-                <input class="create_difficulty" type="range" placeholder="Выберите сложность задачи"
-                    name="add_goal_difficulty" />
-            </div>
-            <input class="create_input" type="text" placeholder="Подробности" name="add_goal_reason" />
-            <button class="create_button">Добавить</button>
-
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input_container">
+                    <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" />
+                    <input class="create_input" type="month" name="add_goal_date" />
+                </div>
+                <div class="select_difficulty">
+                    <h4>Уровень сложности</h4>
+                    <input class="create_difficulty" type="range" placeholder="Выберите сложность задачи"
+                        name="add_goal_difficulty" />
+                </div>
+                <input class="create_input" type="text" placeholder="Подробности" name="add_goal_reason" />
+                <button class="create_button">Добавить</button>
+            </form>
         </div>
 
         <div class="todo_container">

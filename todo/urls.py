@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage, test, second
+from main.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from homework.views import *
@@ -26,6 +26,7 @@ urlpatterns = [
     path("", homepage, name="home"),
     path("test/", test, name="test"),
     path("test2/", second),
+    path("add-todo/", add_todo, name="add-todo"),
     path('homework/', homework, name='homework'),
     path('hw/', hw_2, name='hw'),
     path('meeting/', meeting, name='meetinf'),
