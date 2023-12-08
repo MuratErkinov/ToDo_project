@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToMeet</title>
+    <link rel="stylesheet" href="{% static 'homework/styles/meeting.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
+</head>
+
+<body>
+    <section>
+
+        <div class="create_container">
+            <div class="input_container">
+                <input class="create_input" type="text" placeholder="С кем нужно встретиться" name="todo_persone" />
+                <input class="create_input" type="text" placeholder="Номер телефона" name="meeting_phone" />
+                <input class="create_input" type="datetime-local" name="meeting_date" />
+            </div>
+            <input class="create_input" type="text" placeholder="Комментарий" name="meeting_comment" />
+            <button class="create_button">Добавить</button>
+        </div>
+
+        <div class="todo_container">
+
+            {% for tomeet in tomeet_list %}
+            <div class="todo_item">
+                <div>
+
+                    <div class="todo_item_header">
+                        <label class="checkbox_container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                        </label>
+                        <h4>{{ tomeet.persone }}</h4>
+                    </div>
+                    <div class="todo_item_phone_number">
+                        <p>контакт: {{ tomeet.phone_number }}</p>
+                    </div>
+                </div>
+                <div class="todo_item_comment">
+                    <p>{{ tomeet.comment }}</p>
+                </div>
+                <div class="todo_item_footer">
+                    <p class="paleText">{{ tomeet.date_of_meeting }}</p>
+
+                    <div class="action_buttons">
+                        <img src="{% static './icons/unmarked.png' %}">
+                        <img src="{% static './icons/delete.png' %}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+</body>
+
+</html>

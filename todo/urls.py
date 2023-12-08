@@ -19,7 +19,7 @@ from django.urls import path
 from main.views import homepage, test, second
 from django.conf import settings
 from django.conf.urls.static import static
-from homework.views import homework, hw_2
+from homework.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +28,7 @@ urlpatterns = [
     path("test2/", second),
     path('homework/', homework, name='homework'),
     path('hw/', hw_2, name='hw'),
+    path('meeting/', meeting, name='meetinf'),
+    path('goal_for_month/', goal_for_month, name='goal_for_month'),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -21,23 +21,29 @@ section{
     padding: 12px 5px;
     font-size: 18px;
     width: 80%;
+    margin: 10px;
+}
+
+.input_container{
+    display: flex;
+    width: 95%;
 }
 
 .create_button{
     padding: 12px 20px;
-    background-color: #86d593;
-    border: 1px solid #86d593;
+    background-color: #a7d7b7;
+    border: 1px solid #a7d7b7;
     color: white;
     font-size: 18px;
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .create_button:active{
-    border: 1px solid #86d593;
-    box-shadow: 2px 2px 5px 3px #87bd90;
+    border: 1px solid #a7d7b7;
+    box-shadow: 1px 2px 5px 3px rgb(163 209 165);
 }
 
 .todo_container{
@@ -48,13 +54,21 @@ section{
     width: 100%;
 }
 
-.todo_item{
+.todo_item{    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 24%;
     padding: 10px 15px;
     background-color: #C8E6C9;
     margin-bottom: 20px;
+}
+
+.todo_item.marked{
+    background-color: #FFE082;
+    border: 2px solid #fad66a;
 }
 
 .todo_item.done{
@@ -71,13 +85,8 @@ section{
     opacity: 0.5;
 }
 
-.todo_item.marked{
-    background-color: #FFE082;
-    border: 2px solid #fad66a;
-}
-
 .todo_item_header{
-    display: flex;
+    display: flex;    
     align-items: center;
     min-height: 35px;
 }
@@ -86,11 +95,17 @@ section{
     font-size: 18px;
     font-family: sans-serif;
 }
+
+.todo_item_header h4 a{
+    text-decoration: none;
+}
+
 .todo_item_footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .todo_item_footer p{
     font-size: 15px;
     font-family: sans-serif;
@@ -105,4 +120,24 @@ section{
     height: 25px;
     margin: 0 5px;
     cursor: pointer;
+}
+
+.todo_item_comment p{
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #757575;
+    font-style: italic;
+}
+
+.todo_item_phone_number p{
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.todo_item_comment{
+    margin: 4px 0px;
+}
+
+input{
+    border-radius: 10px;
 }

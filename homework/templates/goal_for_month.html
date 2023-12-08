@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цели на месяц</title>
+    <link rel="stylesheet" href="{% static 'homework/styles/goal_for_month.css' %}" />
+</head>
+
+<body>
+    <section>
+
+        <div class="create_container">
+
+            <div class="input_container">
+                <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" />
+                <input class="create_input" type="month" name="add_goal_date" />
+            </div>
+            <div class="select_difficulty">
+                <h4>Уровень сложности</h4>
+                <input class="create_difficulty" type="range" placeholder="Выберите сложность задачи"
+                    name="add_goal_difficulty" />
+            </div>
+            <input class="create_input" type="text" placeholder="Подробности" name="add_goal_reason" />
+            <button class="create_button">Добавить</button>
+
+        </div>
+
+        <div class="todo_container">
+
+            {% for goalForMonth in goal_for_month_list %}
+            <div class="todo_item">
+                <div class="todo_item_header">
+                    <h4>{{goalForMonth.goal}}</h4>
+                    <p>Уровень сложности: {{goalForMonth.difficulty}}</p>
+                </div>
+                <div class="todo_item_reason">
+                    <p>{{goalForMonth.reason_for_goal}}</p>
+                </div>
+                <div class="todo_item_footer">
+                    <p>{{ goalForMonth.month }}</p>
+                    <div class="action_buttons">
+                        <img src="{% static './icons/unmarked.png' %}">
+                        <img src="{% static './icons/delete.png' %}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+</body>
+
+</html>
