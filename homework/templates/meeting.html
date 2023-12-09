@@ -15,14 +15,14 @@
     <section>
 
         <div class="create_container">
-            <form action="" method="POST">
+            <form action="{% url 'add-meeting' %}" method="POST">
                 {% csrf_token %}
                 <div class="input_container">
-                    <input class="create_input" type="text" placeholder="С кем нужно встретиться" name="todo_persone" />
-                    <input class="create_input" type="text" placeholder="Номер телефона" name="meeting_phone" />
-                    <input class="create_input" type="datetime-local" name="meeting_date" />
+                    <input class="create_input" type="text" placeholder="С кем нужно встретиться" name="todo_persone" required/>
+                    <input class="create_input" type="text" placeholder="Номер телефона" name="meeting_phone" required/>
+                    <input class="create_input" type="datetime-local" name="meeting_date" required/>
                 </div>
-                <input class="create_input" type="text" placeholder="Комментарий" name="meeting_comment" />
+                <input class="create_input" type="text" placeholder="Комментарий" name="meeting_comment" required/>
                 <button class="create_button">Добавить</button>
             </form>
         </div>

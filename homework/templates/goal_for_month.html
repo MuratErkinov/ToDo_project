@@ -14,11 +14,11 @@
     <section>
 
         <div class="create_container">
-            <form action="" method="POST">
+            <form action="{% url 'add-goal' %}" method="POST">
                 {% csrf_token %}
                 <div class="input_container">
-                    <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" />
-                    <input class="create_input" type="month" name="add_goal_date" />
+                    <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" required/>
+                    <input class="create_input" type="month" name="add_goal_date" required/>
                 </div>
                 <div class="select_difficulty">
                     <h4>Уровень сложности</h4>

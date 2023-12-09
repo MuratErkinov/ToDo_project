@@ -31,3 +31,10 @@ class Goal_for_month(models.Model):
     month = models.CharField(max_length=10, choices=MONTH_CHOICES, default="Январь")
     difficulty = models.PositiveSmallIntegerField()
     reason_for_goal = models.TextField()
+
+
+class Habits(models.Model):
+    name = models.CharField(max_length=40)
+    comment = models.TextField()
+    done_for_today = models.BooleanField(default=False)
+    important = models.BooleanField(default=False)

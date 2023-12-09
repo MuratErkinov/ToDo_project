@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import ToMeet, Goal_for_month
+from .models import ToMeet, Goal_for_month, Habits
 
 
 admin.site.register(ToMeet)
 admin.site.register(Goal_for_month)
+admin.site.register(Habits)
