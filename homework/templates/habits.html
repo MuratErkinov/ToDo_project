@@ -32,6 +32,8 @@
             <div class="todo_item
             {% if habit.important %}
                 marked
+            {% elif habit.done_for_today %}
+                done
             {% endif %}
             ">
                 <div class="todo_item_header">
@@ -39,7 +41,7 @@
                         <input type="checkbox" />
                         <span class="checkmark"></span>
                     </label>
-                    <h4>{{ habit.name }}</h4>
+                    <h4><a href="{% url 'close-habits' habit.id %}">{{ habit.name }}</a></h4>
                 </div>
                 <div class="todo_item_footer">
                     <em> -- {{ habit.comment }} --</em>

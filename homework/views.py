@@ -88,6 +88,28 @@ def unmark_to_meet(request, id):
     return redirect(meeting)
 
 
+def close_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_closed = not tomeet.is_closed
+    tomeet.save()
+    return redirect(meeting)
+
+
+
+def close_habits(request, id):
+    habit = Habits.objects.get(id=id)
+    habit.done_for_today = not habit.done_for_today
+    habit.save()
+    return redirect(habits)
+
+
+def close_goal(request, id):
+    goalForMonth = Goal_for_month.objects.get(id=id)
+    goalForMonth.is_closed = not goalForMonth.is_closed
+    goalForMonth.save()
+    return redirect(goal_for_month)
+
+
 def mark_goal(request, id):
     goalForMonth = Goal_for_month.objects.get(id=id)
     goalForMonth.is_favorite = True

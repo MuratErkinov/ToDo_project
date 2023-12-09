@@ -36,10 +36,12 @@
             <div class="todo_item
             {% if goalForMonth.is_favorite %}
                 marked
+            {% elif goalForMonth.is_closed %}
+                done
             {% endif %}
             ">
                 <div class="todo_item_header">
-                    <h4>{{goalForMonth.goal}}</h4>
+                    <h4><a href="{% url 'close-goal' goalForMonth.id %}">{{goalForMonth.goal}}</a></h4>
                     <p>Уровень сложности: {{goalForMonth.difficulty}}</p>
                 </div>
                 <div class="todo_item_reason">
