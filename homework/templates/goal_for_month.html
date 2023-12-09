@@ -33,7 +33,11 @@
         <div class="todo_container">
 
             {% for goalForMonth in goal_for_month_list %}
-            <div class="todo_item">
+            <div class="todo_item
+            {% if goalForMonth.is_favorite %}
+                marked
+            {% endif %}
+            ">
                 <div class="todo_item_header">
                     <h4>{{goalForMonth.goal}}</h4>
                     <p>Уровень сложности: {{goalForMonth.difficulty}}</p>
@@ -44,7 +48,11 @@
                 <div class="todo_item_footer">
                     <p>{{ goalForMonth.month }}</p>
                     <div class="action_buttons">
-                        <img src="{% static './icons/unmarked.png' %}">
+                        {% if goalForMonth.is_favorite %}
+                        <a href="{% url 'unmark-goal' goalForMonth.id %}"><img src="{% static './icons/marked.png' %}"></a>
+                        {% else %}
+                        <a href="{% url 'mark-goal' goalForMonth.id %}"><img src="{% static './icons/unmarked.png' %}"></a>
+                        {% endif %}
                         <a href="{% url 'delete-goal' goalForMonth.id %}"><img src="{% static './icons/delete.png' %}"></a>
                     </div>
                 </div>

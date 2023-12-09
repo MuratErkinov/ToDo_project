@@ -29,7 +29,11 @@
         <div class="todo_container">
 
             {% for habit in habits_list %}
-            <div class="todo_item">
+            <div class="todo_item
+            {% if habit.important %}
+                marked
+            {% endif %}
+            ">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
                         <input type="checkbox" />
@@ -40,7 +44,11 @@
                 <div class="todo_item_footer">
                     <em> -- {{ habit.comment }} --</em>
                     <div class="action_buttons">
-                        <img src="{% static './icons/unmarked.png' %}">
+                        {% if habit.important %}
+                        <a href="{% url 'unmark-habits' habit.id %}"><img src="{% static './icons/marked.png' %}"></a>
+                        {% else %}
+                        <a href="{% url 'mark-habits' habit.id %}"><img src="{% static './icons/unmarked.png' %}"></a>
+                        {% endif %}
                         <a href="{% url 'delete-habits' habit.id %}"><img src="{% static './icons/delete.png' %}"></a>
                     </div>
 

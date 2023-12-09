@@ -30,7 +30,11 @@
         <div class="todo_container">
 
             {% for tomeet in tomeet_list %}
-            <div class="todo_item">
+            <div class="todo_item
+            {% if tomeet.is_favorite %}
+                marked
+            {% endif %}
+            ">
                 <div>
 
                     <div class="todo_item_header">
@@ -51,7 +55,11 @@
                     <p class="paleText">{{ tomeet.date_of_meeting }}</p>
 
                     <div class="action_buttons">
-                        <img src="{% static './icons/unmarked.png' %}">
+                        {% if tomeet.is_favorite %}
+                        <a href="{% url 'unmark-to-meet' tomeet.id %}"><img src="{% static './icons/marked.png' %}"></a>
+                        {% else %}
+                        <a href="{% url 'mark-to-meet' tomeet.id %}"><img src="{% static './icons/unmarked.png' %}"></a>
+                        {% endif %}
                         <a href="{% url 'delete-to-meet' tomeet.id %}"><img src="{% static './icons/delete.png' %}"></a>
                     </div>
                 </div>

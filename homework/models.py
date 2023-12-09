@@ -31,6 +31,8 @@ class Goal_for_month(models.Model):
     month = models.CharField(max_length=10, choices=MONTH_CHOICES, default="Январь")
     difficulty = models.PositiveSmallIntegerField()
     reason_for_goal = models.TextField()
+    is_closed = models.BooleanField(default=False)
+    is_favorite = models.BooleanField(default=False)
 
 
 class Habits(models.Model):

@@ -72,3 +72,45 @@ def delete_habits(request, id):
     habit = Habits.objects.get(id=id)
     habit.delete()
     return redirect(habits)
+
+
+def mark_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_favorite = True
+    tomeet.save()
+    return redirect(meeting)
+
+
+def unmark_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_favorite = False
+    tomeet.save()
+    return redirect(meeting)
+
+
+def mark_goal(request, id):
+    goalForMonth = Goal_for_month.objects.get(id=id)
+    goalForMonth.is_favorite = True
+    goalForMonth.save()
+    return redirect(goal_for_month)
+
+
+def unmark_goal(request, id):
+    goalForMonth = Goal_for_month.objects.get(id=id)
+    goalForMonth.is_favorite = False
+    goalForMonth.save()
+    return redirect(goal_for_month)
+
+
+def mark_habits(request, id):
+    habit = Habits.objects.get(id=id)
+    habit.important = True
+    habit.save()
+    return redirect(habits)
+
+
+def unmark_habits(request, id):
+    habit = Habits.objects.get(id=id)
+    habit.important = False
+    habit.save()
+    return redirect(habits)
