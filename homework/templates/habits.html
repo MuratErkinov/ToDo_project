@@ -41,7 +41,7 @@
                     <em> -- {{ habit.comment }} --</em>
                     <div class="action_buttons">
                         <img src="{% static './icons/unmarked.png' %}">
-                        <img src="{% static './icons/delete.png' %}">
+                        <a href="{% url 'delete-habits' habit.id %}"><img src="{% static './icons/delete.png' %}"></a>
                     </div>
 
                 </div>

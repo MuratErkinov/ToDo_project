@@ -54,3 +54,21 @@ def add_habits(request):
     habit = Habits(name=name, comment=comment)
     habit.save()
     return redirect(habits)
+
+
+def delete_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.delete()
+    return redirect(meeting)
+
+
+def delete_goal(request, id):
+    goalForMonth = Goal_for_month.objects.get(id=id)
+    goalForMonth.delete()
+    return redirect(goal_for_month)
+
+
+def delete_habits(request, id):
+    habit = Habits.objects.get(id=id)
+    habit.delete()
+    return redirect(habits)

@@ -45,7 +45,7 @@
                     <p>{{ goalForMonth.month }}</p>
                     <div class="action_buttons">
                         <img src="{% static './icons/unmarked.png' %}">
-                        <img src="{% static './icons/delete.png' %}">
+                        <a href="{% url 'delete-goal' goalForMonth.id %}"><img src="{% static './icons/delete.png' %}"></a>
                     </div>
                 </div>
             </div>
