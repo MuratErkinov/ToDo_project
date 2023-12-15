@@ -30,15 +30,19 @@
 
             {% for habit in habits_list %}
             <div class="todo_item
-            {% if habit.important %}
-                marked
-            {% elif habit.done_for_today %}
+            {% if habit.done_for_today %}
                 done
+            {% elif habit.important %}
+                marked
             {% endif %}
             ">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
-                        <input type="checkbox" />
+                        <input type="checkbox" 
+                        {% if habit.done_for_today %}
+                            checked
+                        {% endif %}
+                        />
                         <span class="checkmark"></span>
                     </label>
                     <h4><a href="{% url 'close-habits' habit.id %}">{{ habit.name }}</a></h4>
