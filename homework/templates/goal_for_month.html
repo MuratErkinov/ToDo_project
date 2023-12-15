@@ -34,10 +34,10 @@
 
             {% for goalForMonth in goal_for_month_list %}
             <div class="todo_item
-            {% if goalForMonth.is_favorite %}
-                marked
-            {% elif goalForMonth.is_closed %}
+            {% if goalForMonth.is_closed %}
                 done
+            {% elif goalForMonth.is_favorite %}
+                marked
             {% endif %}
             ">
                 <div class="todo_item_header">
